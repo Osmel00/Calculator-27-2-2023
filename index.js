@@ -71,58 +71,54 @@ class Calculator {
     return num;
   }
 }
-console.log(chalk.blue(table) );
+console.log(chalk.blue(table));
 let numOperator;
 const empty0bj = new Calculator();
 do {
- numOperator = prompt('Gib die Operationsnummer ein: ' );
- 
+  numOperator = prompt("Gib die Operationsnummer ein: ");
+} while (
+  empty0bj.validate(numOperator) === false ||
+  numOperator < 1 ||
+  numOperator > 8
+);
 
-} while (empty0bj.validate(numOperator) === false || numOperator < 1 || numOperator > 8);
-
-
-
-if(numOperator!=='7'){
+if (numOperator !== "7") {
   num1 = empty0bj.aux("Erste");
   num2 = empty0bj.aux("Zweite");
- 
 }
 
 const Operations = (numOperator) => {
   const calc = new Calculator(parseFloat(num1), parseFloat(num2));
   switch (numOperator) {
     case "1":
-     return calc.add();
-      
+      return calc.add();
+
     case "2":
       return calc.subtract();
-     
-     case "3":
+
+    case "3":
       return calc.multiply();
-     
+
     case "4":
       return calc.divide();
-   
+
     case "5":
       return calc.modulacion();
-     
+
     case "6":
-      return  calc.elevate();
-     
-    case "7":{
-      let num = prompt(`Gib die  Nummer ein: `);
-      return calc.sqrt(num); 
+      return calc.elevate();
+
+    case "7": {
+      let nummer;
+      do {
+        nummer = prompt(chalk.green("Gib die Nummer ein: "));
+      } while (!empty0bj.validate(nummer));
+      return calc.sqrt(nummer);
     }
-      
-      
+
     case "8":
       return calc.percentage();
-  }  
-  
+  }
 };
 
-console.log(Operations(numOperator)) 
-
-
-
-
+console.log(Operations(numOperator));
