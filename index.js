@@ -52,7 +52,8 @@ class Calculator {
   }
 
   percentage() {
-    return `${(this.num1 / this.num2) * 100}%`;
+    return `${(this.num1 / this.num2).toFixed(2) * 100}%`;
+    
   }
   validate(num) {
     if (isNaN(num)) {
