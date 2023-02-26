@@ -4,14 +4,14 @@ const chalk = require("chalk");
 const table = `
   | Operations |
 
- 1: |add
- 2: |subtract
- 3: |multiply
- 4: |divide
- 5: |modulation
- 6: |elevate
- 7: |sqrt
- 8: |percentage
+ 1: |add '+'
+ 2: |subtract '-'
+ 3: |multiply 'x'
+ 4: |divide  '/'
+ 5: |modulation '%'
+ 6: |elevate (^)
+ 7: |sqrt  '√'
+ 8: |percentage 'x/y * 100'
 `;
 let num1;
 let num2;
@@ -21,7 +21,6 @@ class Calculator {
     this.num1 = num1;
     this.num2 = num2;
   }
-
   add() {
     return this.num1 + this.num2;
   }
@@ -53,7 +52,6 @@ class Calculator {
 
   percentage() {
     return `${(this.num1 / this.num2).toFixed(2) * 100}%`;
-    
   }
   validate(num) {
     if (isNaN(num)) {
